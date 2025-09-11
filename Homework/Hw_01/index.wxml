@@ -1,0 +1,19 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">Title</view>
+</cu-custom>
+
+<view style="color: red; font-size: 20px; text-align: center; margin-top: 20px;">
+  {{message_01}}
+</view>
+
+<view class="flex justify-center">
+  <button class = "cu-btn round" class = "cu-btn round lg" class = "cu-btn round bg-red shadow" bind:tap = "btnClick_01">Button_01</button>
+</view>
+
+<view style="color: red; font-size: 20px; text-align: center; margin-top: 20px;">
+  {{message_02}}
+</view>
+
+<view class="flex justify-center">
+  <button class = "cu-btn round" class = "cu-btn round lg" class = "cu-btn round bg-blue shadow" bind:tap = "btnClick_02">Button_02</button>
+</view>
