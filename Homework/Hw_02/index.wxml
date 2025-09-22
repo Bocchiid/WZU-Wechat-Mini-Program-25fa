@@ -1,0 +1,77 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">小游戏</view>
+</cu-custom>
+
+<view class="flex justify-center text-blue" style="font-size: 32px;">
+  猜数字
+</view>
+
+<view style="margin-left: 10px; font-size: 16px;">
+  <text>游戏规则概述:</text>
+  <text>\n</text>
+  <text>1.系统随机生成0-9中的4个不重复数字</text>
+  <text>\n</text>
+  <text>2.用户每次猜测4个数字</text>
+  <text>\n</text>
+  <text>3.如果数字和位置都正确, 记为A</text>
+  <text>\n</text>
+  <text>4.如果数字正确但位置不对, 记为B</text>
+  <text>\n</text>
+  <text>5.用户有10次猜测机会</text>
+</view>
+
+<view class="flex justify-start">
+  <input
+    type="digit"
+    maxlength="1"
+    value="{{guess[0]}}"
+    style="border: 1px blue solid; width: 40px; height: 40px; margin-top: 30px; margin-left: 50px; text-align: center;"
+    bindinput="input_01"
+    focus="{{focus[0]}}"  
+  />
+
+  <input
+    type="digit"
+    maxlength="1"
+    value="{{guess[1]}}"
+    style="border: 1px blue solid; width: 40px; height: 40px; margin-top: 30px; margin-left: 40px; text-align: center;"
+    bindinput="input_02"
+    focus="{{focus[1]}}"  
+  />
+
+  <input
+    type="digit"
+    maxlength="1"
+    value="{{guess[2]}}"
+    style="border: 1px blue solid; width: 40px; height: 40px; margin-top: 30px; margin-left: 40px; text-align: center;"
+    bindinput="input_03"
+    focus="{{focus[2]}}"  
+  />
+
+  <input
+    type="digit"
+    maxlength="1"
+    value="{{guess[3]}}"
+    style="border: 1px blue solid; width: 40px; height: 40px; margin-top: 30px; margin-left: 40px; text-align: center;"
+    bindinput="input_04"
+    focus="{{focus[3]}}"  
+  />
+</view>
+
+<view class="flex justify-start">
+  <button class="cu-btn round bg-red shadow;" style="margin-top: 30px; margin-left:80px" bind:tap="submit">
+    Submit
+  </button>
+
+  <button class="cu-btn round bg-green shadow;" style="margin-top: 30px; margin-left: 72px;" bind:tap="reStart">
+    ReStart
+  </button>
+</view>
+
+<view class="flex justify-center">
+  <text style="font-size: 30px;">记录</text>
+</view>
+
+<view wx:for="{{history}}" wx:key="*this">
+  <text style="margin-left:10px; font-size: 16px;">第{{index + 1}}次: 输入{{item.guess}} 结果{{item.A}}A{{item.B}}B</text>
+</view>
