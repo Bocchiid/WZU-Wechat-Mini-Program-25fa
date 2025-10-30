@@ -1,0 +1,73 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">场馆预约</view>
+</cu-custom>
+<!-- This is image part. -->
+<view>
+  <image src="https://img.hebnews.cn/2021-06/23/b99119ff-aa85-4543-8a9c-a238d2d6e6a8.jpg" style="width: 100%; height: 240px;">
+  </image>
+</view>
+<!-- This is form part. -->
+<form>
+  <!-- This is title. -->
+  <view class="cu-bar" style="background-color: white;">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text>
+      <text class="text-xl text-bold" style="color: gray;">请填写预约信息</text>
+    </view>
+  </view>
+  <!-- Input name. -->
+  <view class="cu-form-group">
+    <view class="title">
+      <text style="color: red;">*</text>
+      <text>申请人：</text>
+    </view>
+    <input maxlength="8" placeholder="请输入姓名" type="text" data-field='name' bindinput="onInputChange"></input>
+  </view>
+  <!-- Input phone number. -->
+  <view class="cu-form-group">
+    <view class="title">
+      <text style="color: red;">*</text>
+      <text>手机号：</text>
+    </view>
+    <input maxlength="11" placeholder="请输入手机号" type="number" data-field="phone" bindinput="onInputChange"></input>
+  </view>
+  <!-- Input the number of people. -->
+  <view class="cu-form-group">
+    <view class="title">
+      <text style="color: red;">*</text>
+      <text>人　数：</text>
+    </view>
+    <input maxlength="2" placeholder="请输入人数" type="number" data-field="number" bindinput="onInputChange"></input>
+  </view>
+  <!-- Select date. -->
+  <view class="cu-form-group">
+    <view class="title">选择日期</view>
+    <picker mode="date" value="{{form.date}}" start="{{dateRange.start}}" end="{{dateRange.end}}" data-field="date" bindchange="onInputChange">
+      <view class="picker">
+        {{form.date}}
+      </view>
+    </picker>
+  </view>
+  <!-- Select start time. -->
+  <view class="cu-form-group">
+    <view class="title">开始时间</view>
+    <picker mode="time" value="{{form.startTime}}" start="{{timeRange.start}}" end="{{timeRange.end}}" data-field="startTime" bindchange="onInputChange">
+      <view class="picker">
+        {{form.startTime}}
+      </view>
+    </picker>
+  </view>
+  <!-- Select end time. -->
+  <view class="cu-form-group">
+    <view class="title">结束时间</view>
+    <picker mode="time" value="{{form.endTime}}" start="{{timeRange.start}}" end="{{timeRange.end}}" data-field="endTime" bindchange="onInputChange">
+      <view class="picker">
+        {{form.endTime}}
+      </view>
+    </picker>
+  </view>
+</form>
+<!-- Submit form. -->
+<view class="flex justify-center;" style="margin-top: 20px;">
+  <button class="cu-btn round bg-blue shadow; cu-btn round lg;" bind:tap="submit">提交</button>
+</view>
