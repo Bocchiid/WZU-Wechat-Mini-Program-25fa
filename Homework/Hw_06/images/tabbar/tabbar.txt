@@ -1,0 +1,26 @@
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#333",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text":"主页",
+        "iconPath": "/images/tabbar/home.png",
+        "selectedIconPath": "/images/tabbar/home_cur.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text":"应用",
+        "iconPath": "/images/tabbar/app.png",
+        "selectedIconPath": "/images/tabbar/app_cur.png"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text":"关于",
+        "iconPath": "/images/tabbar/about.png",
+        "selectedIconPath": "/images/tabbar/about_cur.png"
+      }
+    ]
+    
+  },
