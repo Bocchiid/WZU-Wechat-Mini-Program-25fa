@@ -1,0 +1,53 @@
+<cu-custom bgColor="bg-gradual-orange" isBack="{{true}}">
+  <view slot="content">{{className}}通讯录</view>
+</cu-custom>
+
+<view class="margin-sm bg-white radius-lg" wx:if="{{loading}}" style="position: fixed; top: 42%; left: 47.3%;">
+  <!-- 扩展样式一 -->
+  <view class="cu-loading-box flex align-center justify-center">
+    <view class="cu-loading1">
+      <view class="bg-blue" wx:for="{{8}}" wx:key="item"></view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px;" wx:if="{{!loading}}">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="输入搜索的关键词" bindinput="selectStu"></input>
+  </view>
+</view>
+
+<scroll-view scroll-y class="indexes; margin-top-xxl padding-top;">
+  <view class="bg-white margin-xs radius-lg">
+    <block wx:for="{{selectStuList}}" wx:key="item">
+      <view class="flex padding-tb-sm">
+        <view class="flex-treble">
+          <view class="flex">
+            <view class="padding-lr-sm">
+              <view class="cu-avatar xl round" style="background-image:url(https://979c-commentimg-1252317822.image.myqcloud.com/e82e0d81a288da0ae16412212da8a208.jpeg);">
+              </view>
+            </view>
+            <view class="padding-xs text-xl text-black">
+              <view class="text-bold">{{item.name}}</view>
+              <view class="text-{{item.color}} text-sm padding-tb-xs">
+                {{item.classname}}
+              </view>
+              <view class="text-gray text-sm">
+                {{item.phone}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="flex-sub">
+          <view class="flex justify-end text-black text-xxl">
+            <view class="cu-item text-black; padding-sm padding-top-lg;" bind:tap="addToContact" data-person="{{item}}">
+              <view class="cuIcon-{{'friendadd'}} xl"></view>
+            </view>
+            <view class="icon-phone padding-sm padding-top-lg" bind:tap="callPhone" data-phone="{{item.phone}}"></view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
