@@ -1,0 +1,28 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="false">
+  <view slot="content">登录</view>
+</cu-custom>
+
+<!-- background image -->
+<image src="cloud://cloud1-8gylym58ae4d6da9.636c-cloud1-8gylym58ae4d6da9-1382384471/login/bg/bg-login.jpg" style="width: 100%;"></image>
+
+<!-- login form input -->
+<view class="cu-form-group">
+  <view class="title"><text style="color: red;">*</text>用户名:</view>
+  <input placeholder="请输入用户名" bindinput="loginInput" data-type="username"></input>
+</view>
+<view class="cu-form-group">
+  <view class="title"><text style="color: red;">*</text>密　码:</view>
+  <input placeholder="请输入密码" password="{{!showPassword}}" bindinput="loginInput" data-type="password"></input>
+  <text class="cuIcon-{{showPassword?'attention':'attentionforbid'}}" bind:tap="changeShowPassword"></text>
+</view>
+
+<!-- login button -->
+<view class="flex justify-center;" style="padding: 10px;">
+  <button class="cu-btn bg-green shadow-blur round" bind:tap="loginIn" disabled="{{!enableButton}}">登录</button>
+</view>
+
+<!-- footer -->
+<view class="flex solid-bottom padding-sm align-center" style="position: fixed; bottom: 0%; flex-direction: column; text-align:center;">
+  <text>Copyright © 人工智能学院 Wenzhou University All Rights Reserved.</text>
+  <text>技术支持：捷点科技</text>
+</view>
