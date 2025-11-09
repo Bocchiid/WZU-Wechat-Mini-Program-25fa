@@ -1,5 +1,5 @@
 from openai import OpenAI
-client = OpenAI(api_key='sk-7cd549044e8f4077ad1462f621cf47ac',base_url="https://api.deepseek.com")
+client = OpenAI(api_key='',base_url="https://api.deepseek.com") # 为了安全, 我把老师的Key删了, 此处你可以填自己的Key
 
 response = client.chat.completions.create(
     model="deepseek-chat",
@@ -17,5 +17,6 @@ for chunk in response:
         # print 默认会换行，使用 end='' 让内容连续
         # flush=True 确保内容立即被打印，而不是等缓冲区满了
         print(content, end='', flush=True)
+
 
 # print(response.choices[0].message.content)
