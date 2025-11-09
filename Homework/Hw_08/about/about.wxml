@@ -1,0 +1,45 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">关于</view>
+</cu-custom>
+
+<view class="cu-list menu card-menu sm-border margin-top margin-bottom-xl shadow radius-lg">
+  <view class="cu-item arrow" bindtap="toPage" data-url="/pages/about/about/about">
+    <view class="content">
+      <image src="/images/tabbar/about_cur.png" class="png" mode="aspectFit"></image>
+      <text>关于小程序</text>
+    </view>
+  </view>
+  <view class="cu-item arrow" bindtap="toPage" data-url="/pages/about/log/log">
+    <view class="content">
+      <text class="cuIcon-formfill text-blue"></text>
+      <text>更新日志</text>
+    </view>
+  </view>
+  <view class="cu-item arrow" bindtap="toPage" data-url="/pages/about/appreciate/appreciate">
+    <view class="content">
+      <text class="cuIcon-wefill text-red"></text>
+      <text>致谢</text>
+    </view>
+  </view>
+  <view class="cu-item" bindtap="CopyText" data-link="https://github.com/XiaokangLei/ColorUI-GA">
+    <view class="content">
+      <text class="cuIcon-github text-black"></text>
+      <text>源码开源</text>
+    </view>
+    <view class="cuIcon-copy text-blue"></view>
+  </view>
+  <view class="cu-item" bindtap="CopyText" data-link="https://one.x-artspace.cn/ColorUI-GA-Docs">
+    <view class="content">
+      <text class="cuIcon-link text-green"></text>
+      <text>文档链接</text>
+    </view>
+    <view class="cuIcon-copy text-blue"></view>
+  </view>
+
+  <view class="cu-item arrow" bindtap="toPage" data-url="/pages/admin/admin" wx:if="{{auth==='admin'}}">
+    <view class="content">
+      <image src="/images/about/admin.png" class="png" mode="aspectFit"></image>
+      <text style="color: red;">管理员</text>
+    </view>
+  </view>
+</view>

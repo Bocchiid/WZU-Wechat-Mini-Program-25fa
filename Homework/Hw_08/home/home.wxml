@@ -1,0 +1,34 @@
+<!-- background image -->
+<image src="/images/bg/bg.png" style="width: 100%; height: 100%; position: absolute;"></image>
+
+<!-- swiper images -->
+<view style="padding-top:{{CustomBar}}px;">
+  <swiper class="card-swiper round-dot" indicator-dots="true" circular="true" previousMargin="0.01rpx" indicator-color="#8799a3" indicator-active-color="#0081ff" autoplay="true">
+    <swiper-item wx:for="{{swiperList}}" wx:key="item">
+      <view class="swiper-item">
+        <image src="{{item.url}}" mode="aspectFill"></image>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- tips -->
+<view class="tips-box">
+  <swiper class="tips-new-swiper bg-orange light" vertical="true" autoplay="true" circular="true" interval="3000" duration="500" display-multiple-items='1' easing-function="easeInOutCubic">
+    <block wx:for-index="idx" wx:for='{{tipList}}' wx:key="index">
+      <swiper-item>
+        <view class="padding-left"><text class='cuIcon-magic text-orange'> {{item.text}}</text></view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<!-- application icons -->
+<view class="cu-list grid col-{{gridCol}} no-border">
+  <view class="cu-item" wx:for="{{iconList}}" wx:key="item">
+    <view class="flex justify-center">
+      <image src="{{item.icon}}" class="icon-img" bind:tap="navigateToNewPage" data-key="{{item.key}}" data-authlist="{{item.auth}}" style="width: 60px; height: 60px;"></image>
+    </view>
+    <text>{{item.name}}</text>
+  </view>
+</view>

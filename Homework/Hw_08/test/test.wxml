@@ -1,0 +1,7 @@
+<!--pages/test/test.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">chat</view>
+</cu-custom>
+
+<view style="white-space: pre-wrap; "> {{answer}} </view>
+
