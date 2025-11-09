@@ -7,7 +7,7 @@ from pydantic import BaseModel
 
 
 app = FastAPI()
-client = OpenAI(api_key='sk-7cd549044e8f4077ad1462f621cf47ac', base_url="https://api.deepseek.com")
+client = OpenAI(api_key='', base_url="https://api.deepseek.com") # 为了安全, 我把老师的Key删了, 此处可以填你自己的Key
 
 class ChatRequest(BaseModel):
     content: str
@@ -36,3 +36,4 @@ async def chat(request: ChatRequest):
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
+
