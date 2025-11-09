@@ -22,7 +22,7 @@ exports.main = async (event, context) => {
       {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer sk-7cd549044e8f4077ad1462f621cf47ac'
+          'Authorization': 'Bearer ' //为了安全, 我把老师的Key删了, 此处可以填你自己的Key
         },
         "stream": true
       }
