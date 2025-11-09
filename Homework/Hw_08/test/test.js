@@ -59,7 +59,7 @@ Page({
       method: 'POST',
       header: {
         'content-type': 'application/json',
-        'Authorization': 'Bearer sk-7cd549044e8f4077ad1462f621cf47ac'
+        'Authorization': 'Bearer ' //为了安全, 我把老师的Key删了, 此处可以填上你自己的Key
       },
       data: {
         model: 'deepseek-chat',
@@ -109,4 +109,5 @@ Page({
     // this.chat_cloud('你好,请介绍一下自己')
     this.httpRequest('用100字介绍温州大学')
   },
+
 })
