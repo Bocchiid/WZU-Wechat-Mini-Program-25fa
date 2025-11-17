@@ -1,0 +1,44 @@
+<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+  <view slot="content">AI聊天室</view>
+</cu-custom>
+
+
+<scroll-view scroll-y scroll-top="{{scrollTop}}" style="height: calc(100vh - 100rpx - 84rpx); padding-bottom: 120rpx;" scroll-with-animation="true" wx:key="*this" bindscroll="loadUpperHistory">
+  <view class="cu-chat">
+    <view wx:for="{{history}}" wx:key="*this">
+      <view class="cu-item self" wx:if="{{item.role==='user'}}">
+        <view class="main">
+          <view class="content bg-green shadow">
+            <text>{{item.content}}</text>
+          </view>
+        </view>
+        <image style="width: 60px; height: 60px;" src="cloud://cloud1-8gylym58ae4d6da9.636c-cloud1-8gylym58ae4d6da9-1382384471/AIchat/user.png"></image>
+        <view class="date">{{item.timeStamp}}</view>
+      </view>
+
+      <view class="cu-item" wx:else="{{item.role==='assistant'}}">
+        <image style="width: 60px; height: 45px;" src="cloud://cloud1-8gylym58ae4d6da9.636c-cloud1-8gylym58ae4d6da9-1382384471/AIchat/deepseek.png"></image>
+        <view class="main">
+          <view class="content shadow">
+            <text>{{item.content}}</text>
+          </view>
+        </view>
+        <view class="date">{{item.timeStamp}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
+  <view class="action">
+    <text class="cuIcon-sound text-grey"></text>
+  </view>
+
+  <input class="solid-bottom" bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10" bindinput="inputMessage" value="{{inputText}}"></input>
+
+  <view class="action">
+    <text class="cuIcon-emojifill text-grey"></text>
+  </view>
+
+  <button class="cu-btn bg-green shadow" bind:tap="sendMessage">发送</button>
+</view>
