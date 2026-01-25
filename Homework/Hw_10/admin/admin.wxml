@@ -1,0 +1,13 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">管理员</view>
+</cu-custom>
+
+<!-- application icons -->
+<view class="cu-list grid col-{{gridCol}} no-border">
+  <view class="cu-item" wx:for="{{iconList}}" wx:key="item">
+    <view class="flex justify-center">
+      <image src="{{item.icon}}" class="icon-img" bind:tap="navigateToNewPage" data-key="{{item.key}}" style="width: 60px; height: 60px;"></image>
+    </view>
+    <text>{{item.name}}</text>
+  </view>
+</view>
