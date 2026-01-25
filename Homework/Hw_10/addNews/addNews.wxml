@@ -1,0 +1,45 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">添加新闻</view>
+</cu-custom>
+
+<view class="cu-form-group margin-top-sm">
+  <view class="title">发布人：</view>
+  <input bindinput="inputNews" data-key="publisher"></input>
+</view>
+
+<view class="cu-form-group">
+  <view class="title">主　题：</view>
+  <input bindinput="inputNews" data-key="topic"></input>
+</view>
+
+<view class="cu-form-group align-start margin-top-sm">
+  <view class="title">内　容：</view>
+  <textarea maxlength="-1" disabled="{{false}}" bindinput="inputNews" data-key="content"></textarea>
+</view>
+
+<view class="cu-bar bg-white margin-top-sm">
+  <view class="action">
+    图片上传
+  </view>
+  <view class="action">
+    {{imgList.length}}/{{imgLimit}}
+  </view>
+</view>
+
+<view class="cu-form-group">
+  <view class="grid col-4 grid-square flex-sub">
+    <view class="bg-img" wx:for="{{imgList}}" wx:key="item" bindtap="ViewImage" data-url="{{imgList[index]}}">
+      <image src='{{imgList[index]}}' mode='aspectFill'></image>
+      <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+        <text class="cuIcon-close"></text>
+      </view>
+    </view>
+    <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<imgLimit}}">
+      <text class="cuIcon-cameraadd"></text>
+    </view>
+  </view>
+</view>
+
+<view class="flex justify-center;" style="padding: 10px;">
+  <button class="cu-btn bg-green shadow-blur round" bind:tap="submitNews" disabled="{{!enableButton}}">提交</button>
+</view>
